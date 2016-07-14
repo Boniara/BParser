@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<company name="roxsoft">
+    <departments>
+        <department name="Minsk01">
+            <department_address>
+                <country>Belarus</country>
+                <city>Minsk</city>
+                <street>Mogilevskaia</street>
+                <house>41</house>
+            </department_address>
+            <employees>
+                <employee id="1">
+                    <firstName>Bogdan</firstName>
+                    <lastName>Rutkov</lastName>
+                    <age>22</age>
+                    <position>Java Developer</position>
+                    <address>
+                        <country>Belarus</country>
+                        <city>Minsk</city>
+                        <street>Levkova</street>
+                        <house>3</house>
+                    </address>
+                </employee>
+                <employee id="2">
+                    <firstName>Petr</firstName>
+                    <lastName>Petrov</lastName>
+                    <age>28</age>
+                    <position>C++ Developer</position>
+                    <address>
+                        <country>Belarus</country>
+                        <city>Minsk</city>
+                        <street>Voronianskogo</street>
+                        <house>1</house>
+                    </address>
+                </employee>
+                <employee id="3">
+                    <firstName>Ivan</firstName>
+                    <lastName>Ivanov</lastName>
+                    <age>24</age>
+                    <position>C# Developer</position>
+                    <address>
+                        <country>Belarus</country>
+                        <city>Minsk</city>
+                        <street>Odoevskaia</street>
+                        <house>2</house>
+                    </address>
+                </employee>
+                <employee id="4">
+                    <firstName>Andrei</firstName>
+                    <lastName>Andreev</lastName>
+                    <age>22</age>
+                    <position>QA Engineer</position>
+                    <address>
+                        <country>Belarus</country>
+                        <city>Minsk</city>
+                        <street>Jukovskogo</street>
+                        <house>4</house>
+                    </address>
+                </employee>
+            </employees>
+        </department>
+        <department name="KeyWest01">
+            <department_address>
+                <country>USA</country>
+                <city>Key West</city>
+                <street>1st street</street>
+                <house>27</house>
+            </department_address>
+            <employees>
+                <employee id="1">
+                    <firstName>Bogdan</firstName>
+                    <lastName>Rutkov</lastName>
+                    <age>22</age>
+                    <position>Java Developer</position>
+                    <address>
+                        <country>Belarus</country>
+                        <city>Minsk</city>
+                        <street>Levkova</street>
+                        <house>3</house>
+                    </address>
+                </employee>
+                <employee id="5">
+                    <firstName>Roman</firstName>
+                    <lastName>Rutkov</lastName>
+                    <age>23</age>
+                    <position>Java Developer</position>
+                    <address>
+                        <country>USA</country>
+                        <city>Key West</city>
+                        <street>Patterson avenue</street>
+                        <house>3</house>
+                    </address>
+                </employee>
+                <employee id="6">
+                    <firstName>Jack</firstName>
+                    <lastName>Willson</lastName>
+                    <age>32</age>
+                    <position>Project Manager</position>
+                    <address>
+                        <country>USA</country>
+                        <city>Key West</city>
+                        <street>4th street</street>
+                        <house>1</house>
+                    </address>
+                </employee>
+                <employee id="7">
+                    <firstName>Olivia</firstName>
+                    <lastName>Bryan</lastName>
+                    <age>24</age>
+                    <position>HR Manager</position>
+                    <address>
+                        <country>USA</country>
+                        <city>Key West</city>
+                        <street>1st avenue</street>
+                        <house>2</house>
+                    </address>
+                </employee>
+                <employee id="8">
+                    <firstName>Walter</firstName>
+                    <lastName>White</lastName>
+                    <age>48</age>
+                    <position>Pizza man</position>
+                    <address>
+                        <country>USA</country>
+                        <city>Miami</city>
+                        <street>Bitch</street>
+                        <house>1</house>
+                    </address>
+                </employee>
+            </employees>
+        </department>
+    </departments>
+</company>
