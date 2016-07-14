@@ -28,7 +28,7 @@ public class JaxBParser<T> implements IParser<T> {
         try {
             context = JAXBContext.newInstance(Company.class);
             unmarshaller = context.createUnmarshaller();
-            t = (T) unmarshaller.unmarshal(new File(fileName));
+            t = (T)unmarshaller.unmarshal(new File(fileName));
         } catch (JAXBException e) {
             LOG.error("JAXBException while context up.", e);
         }

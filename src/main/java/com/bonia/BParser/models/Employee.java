@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Employee {
 
     @JsonProperty("id")
-    private long id_employee;
+    private long idEmployee;
     @JsonProperty("firstName")
     private String firstName;
     @JsonProperty("lastName")
@@ -26,12 +26,12 @@ public class Employee {
     }
 
     @XmlAttribute(name = "id")
-    public long getId_employee() {
-        return id_employee;
+    public long getIdEmployee() {
+        return idEmployee;
     }
 
-    public void setId_employee(long id_employee) {
-        this.id_employee = id_employee;
+    public void setIdEmployee(long idEmployee) {
+        this.idEmployee = idEmployee;
     }
 
     @XmlElement(name = "firstName")
@@ -81,7 +81,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getId_employee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " " + getPosition()
+        return getIdEmployee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " " + getPosition()
                 + getAddress().toString();
     }
 }

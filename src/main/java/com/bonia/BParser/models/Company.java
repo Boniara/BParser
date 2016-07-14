@@ -14,7 +14,7 @@ import java.util.List;
 public class Company {
 
     @JsonIgnore
-    private long id_company;
+    private long idCompany;
     @JsonProperty("name")
     private String companyName;
     @JsonProperty("departments")
@@ -24,12 +24,12 @@ public class Company {
         this.departmentList = new ArrayList<>();
     }
 
-    public long getId_company() {
-        return id_company;
+    public long getIdCompany() {
+        return idCompany;
     }
 
-    public void setId_company(long id_company) {
-        this.id_company = id_company;
+    public void setIdCompany(long idCompany) {
+        this.idCompany = idCompany;
     }
 
     @XmlAttribute(name = "name")

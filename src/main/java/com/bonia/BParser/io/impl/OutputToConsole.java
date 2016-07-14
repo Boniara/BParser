@@ -44,7 +44,7 @@ public class OutputToConsole<T> implements IFileOutput<T> {
                 System.out.println(company.getCompanyName() + ": " + department.getDepartmentName() + ": "
                         + department.getAddress().getCountryName() + ", " + department.getAddress().getCityName() + ", "
                         + department.getAddress().getStreetName() + ", " + department.getAddress().getHouseNumber() + ": "
-                        + employee.getId_employee() + " " +  employee.getFirstName() + " " + employee.getLastName() + " "
+                        + employee.getIdEmployee() + " " +  employee.getFirstName() + " " + employee.getLastName() + " "
                         + employee.getAge() + " " + employee.getPosition() + " - "
                         + employee.getAddress().getCountryName() + ", " + employee.getAddress().getCityName() + ", "
                         + employee.getAddress().getStreetName() + ", " + employee.getAddress().getHouseNumber());

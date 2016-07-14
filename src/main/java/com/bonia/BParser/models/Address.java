@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Address {
 
     @JsonIgnore
-    private long id_address;
+    private long idAddress;
     @JsonProperty("country")
     private String countryName;
     @JsonProperty("city")
@@ -22,12 +22,12 @@ public class Address {
     public Address() {
     }
 
-    public long getId_address() {
-        return id_address;
+    public long getIdAddress() {
+        return idAddress;
     }
 
-    public void setId_address(long id_address) {
-        this.id_address = id_address;
+    public void setIdAddress(long idAddress) {
+        this.idAddress = idAddress;
     }
 
     @XmlElement(name = "country")

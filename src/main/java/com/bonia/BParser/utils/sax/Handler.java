@@ -10,26 +10,11 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;
 import java.util.List;
+import static com.bonia.BParser.utils.sax.constants.HandlerConstantSource.*;
 
 public class Handler extends DefaultHandler {
 
     private static final Logger LOG = Logger.getLogger(Handler.class);
-
-    private static final String DEPARTMENT = "department";
-    private static final String EMPLOYEE = "employee";
-    private static final String FIRST_NAME = "firstName";
-    private static final String LAST_NAME = "lastName";
-    private static final String AGE = "age";
-    private static final String POSITION = "position";
-    private static final String NAME = "name";
-    private static final String ID = "id";
-    private static final String COMPANY = "company";
-    private static final String DEPARTMENT_ADDRESS = "department_address";
-    private static final String ADDRESS = "address";
-    private static final String COUNTRY = "country";
-    private static final String CITY = "city";
-    private static final String STREET = "street";
-    private static final String HOUSE = "house";
 
     private List<Employee> employeeList;
     private Employee employee;
@@ -51,28 +36,6 @@ public class Handler extends DefaultHandler {
         this.bDepartmentAddress = true;
         this.element = "";
     }
-
-    /**
-     * @author rutkovba
-     * @see Enum
-     * @deprecated don`t use in programm logic.
-     */
-    @Deprecated
-    public enum Tag {
-
-        DEPARTMENT("department"), EMPLOYEE("employee"),
-        FIRSTNAME("firstName"), LASTNAME("lastName"), AGE("age"), POSITION("position");
-
-        private String name = "";
-
-        Tag(String name) {
-            this.name = name;
-        }
-
-        public String getValue() {
-            return name;
-        }
-    };
 
     @Override
     public void startDocument() throws SAXException {
@@ -128,7 +91,7 @@ public class Handler extends DefaultHandler {
                     break;
                 case DEPARTMENT: department.setDepartmentName(attributes.getValue(NAME));
                     break;
-                case EMPLOYEE: employee.setId_employee(Integer.parseInt(attributes.getValue(ID)));
+                case EMPLOYEE: employee.setIdEmployee(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 case DEPARTMENT_ADDRESS: bDepartmentAddress = true;
                     break;

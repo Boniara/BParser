@@ -13,7 +13,7 @@ import java.util.List;
 public class Department {
 
     @JsonIgnore
-    private long id_department;
+    private long idDepartment;
     @JsonProperty("name")
     private String departmentName;
     @JsonProperty("employees")
@@ -26,12 +26,12 @@ public class Department {
         this.address = new Address();
     }
 
-    public long getId_department() {
-        return id_department;
+    public long getIdDepartment() {
+        return idDepartment;
     }
 
-    public void setId_department(long id_department) {
-        this.id_department = id_department;
+    public void setIdDepartment(long idDepartment) {
+        this.idDepartment = idDepartment;
     }
 
     @XmlAttribute(name = "name")
