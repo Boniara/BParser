@@ -1,7 +1,6 @@
 package com.bonia.BParser.io.impl;
 
 import com.bonia.BParser.io.IFileInput;
-
 import java.net.URI;
 
 public class FileInput implements IFileInput {

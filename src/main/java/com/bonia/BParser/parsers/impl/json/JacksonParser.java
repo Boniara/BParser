@@ -1,6 +1,5 @@
 package com.bonia.BParser.parsers.impl.json;
 
-import com.bonia.BParser.io.impl.FileInput;
 import com.bonia.BParser.models.Address;
 import com.bonia.BParser.models.Company;
 import com.bonia.BParser.models.Department;
@@ -8,7 +7,6 @@ import com.bonia.BParser.models.Employee;
 import com.bonia.BParser.parsers.IParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.log4j.Logger;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,11 +26,10 @@ public class JacksonParser<T> implements IParser<T> {
 
     @Override
     public T parse(String fileName) {
-        FileInput input = new FileInput(fileName);
         LOG.info("JACKSON PARSER IS STARTING.");
 
         try {
-            company = mapper.readValue(new File(input.toURI()), Company.class);
+            company = mapper.readValue(new File(fileName), Company.class);
         } catch (IOException e) {
             LOG.error("IOException", e);
         }

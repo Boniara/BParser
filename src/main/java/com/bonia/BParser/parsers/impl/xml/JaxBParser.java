@@ -1,6 +1,5 @@
 package com.bonia.BParser.parsers.impl.xml;
 
-import com.bonia.BParser.io.impl.FileInput;
 import com.bonia.BParser.models.Address;
 import com.bonia.BParser.models.Company;
 import com.bonia.BParser.models.Department;
@@ -28,13 +27,12 @@ public class JaxBParser<T> implements IParser<T> {
 
     @Override
     public T parse(String fileName) {
-        FileInput input = new FileInput(fileName);
         LOG.info("JAXB PARSER IS STARTING.");
 
         try {
             context = JAXBContext.newInstance(Company.class);
             unmarshaller = context.createUnmarshaller();
-            t = (T) unmarshaller.unmarshal(new File(input.toURI()));
+            t = (T) unmarshaller.unmarshal(new File(fileName));
         } catch (JAXBException e) {
             LOG.error("JAXBException while context up.", e);
         }

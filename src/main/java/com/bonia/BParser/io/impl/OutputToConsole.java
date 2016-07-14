@@ -5,7 +5,6 @@ import com.bonia.BParser.models.Company;
 import com.bonia.BParser.models.Department;
 import com.bonia.BParser.models.Employee;
 import org.apache.log4j.Logger;
-
 import java.util.List;
 
 public class OutputToConsole<T> implements IFileOutput<T> {

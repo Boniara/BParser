@@ -1,6 +1,5 @@
 package com.bonia.BParser.parsers.impl.xml;
 
-import com.bonia.BParser.io.impl.FileInput;
 import com.bonia.BParser.main.MainClass;
 import com.bonia.BParser.parsers.IParser;
 import com.bonia.BParser.utils.sax.Handler;
@@ -29,12 +28,11 @@ public class SaxParser<T> implements IParser<T> {
 
     @Override
     public T parse(String fileName) {
-        FileInput input = new FileInput(fileName);
         LOG.info("SAX PARSER IS STARTING.");
 
         try {
             SAXParser parser = saxParserFactory.newSAXParser();
-            parser.parse(new File(input.toURI()), handler);
+            parser.parse(new File(fileName), handler);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             LOG.error("ParserConf | SAX | IO Exception.", e);
         }
