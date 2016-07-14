@@ -37,6 +37,7 @@ public class SaxParser<T> implements IParser<T> {
             LOG.error("ParserConf | SAX | IO Exception.", e);
         }
         LOG.info("SAX PARSER IS FINISHING.");
+        LOG.debug("Company object " + handler.getCompany().toString());
         return factory.getInstance(handler);
     }
 }

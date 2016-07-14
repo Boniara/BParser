@@ -55,7 +55,7 @@ public class Handler extends DefaultHandler {
     /**
      * @author rutkovba
      * @see Enum
-     * @deprecated don`t use in programm logic
+     * @deprecated don`t use in programm logic.
      */
     @Deprecated
     public enum Tag {
@@ -76,12 +76,12 @@ public class Handler extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        LOG.info("Reading document....");
+        LOG.debug("Reading document....");
     }
 
     @Override
     public void endDocument() throws SAXException {
-        LOG.info("Finish of reading....");
+        LOG.debug("Finish of reading....");
     }
 
     @Override
@@ -102,17 +102,12 @@ public class Handler extends DefaultHandler {
     }
 
     /**
-     * Interface use to init some data structures for SAX Handler
+     * Interface IHandler use to init some data structures for SAX Handler.
      * <p>
      * @author rutkovba
-     * @see Handler
+     * @see Handler, {@link DefaultHandler}
      */
     private interface IHandler {
-        /**
-         *
-         * @param element
-         * @param attributes
-         */
         public void initStartElement(String element, Attributes attributes);
         public void initEndElement(String qName);
         public void initCharacters(String parameter);
@@ -207,6 +202,7 @@ public class Handler extends DefaultHandler {
     /**
      * Use to get {@link Handler#company}
      * @return {@link Handler#company}
+     * <p>S
      * @see Company
      */
     public Company getCompany() {

@@ -81,6 +81,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getId_employee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " " + getPosition();
+        return getId_employee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " " + getPosition()
+                + getAddress().toString();
     }
 }

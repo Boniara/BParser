@@ -64,6 +64,6 @@ public class Department {
 
     @Override
     public String toString() {
-        return getDepartmentName();
+        return getDepartmentName() + getEmployeeList().toString() + getAddress().toString();
     }
 }

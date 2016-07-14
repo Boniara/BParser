@@ -34,9 +34,16 @@ public class JacksonParser<T> implements IParser<T> {
             LOG.error("IOException", e);
         }
         LOG.info("JACKSON PARSER IS FINISHING.");
+        LOG.debug(company.toString());
         return (T)company;
     }
 
+
+    /**
+     * Methode use to init simple Company class structure for JacksonParser.
+     * @deprecated, because have fix fields.
+     * @see Company
+     */
     @Deprecated
     public static void defaultMarshalling(Company defaultCompany) {
         Address a1 = new Address();

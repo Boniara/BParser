@@ -37,9 +37,15 @@ public class JaxBParser<T> implements IParser<T> {
             LOG.error("JAXBException while context up.", e);
         }
         LOG.info("JAXB PARSER IS FINISHING.");
+        LOG.debug(t.toString());
         return t;
     }
 
+    /**
+     * Methode use to init simple Company class structure for JaxbParser.
+     * @deprecated, because have fix fields.
+     * @see Company
+     */
     @Deprecated
     public static void defaultMarshalling() {
         Address a1 = new Address();

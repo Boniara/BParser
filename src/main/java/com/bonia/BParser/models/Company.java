@@ -53,6 +53,6 @@ public class Company {
 
     @Override
     public String toString() {
-        return getCompanyName();
+        return getCompanyName() + getDepartmentList().toString();
     }
 }
