@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "company")
-//@JsonIgnoreProperties({"id_company"})
 public class Company {
 
     @JsonIgnore
@@ -25,37 +24,29 @@ public class Company {
         this.departmentList = new ArrayList<>();
     }
 
-    /*@JsonIgnore
-    @JsonGetter("id")*/
     public long getId_company() {
         return id_company;
     }
 
-    /*@JsonIgnore
-    @JsonSetter("id")*/
     public void setId_company(long id_company) {
         this.id_company = id_company;
     }
 
     @XmlAttribute(name = "name")
-    //@JsonGetter("name")
     public String getCompanyName() {
         return companyName;
     }
 
-    //@JsonSetter("name")
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
     @XmlElement(name = "department")
     @XmlElementWrapper(name = "departments")
-    //@JsonGetter("departments")
     public List<Department> getDepartmentList() {
         return departmentList;
     }
 
-    //@JsonSetter("departments")
     public void setDepartmentList(List<Department> departmentList) {
         this.departmentList = departmentList;
     }

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "department")
-//@JsonIgnoreProperties({"id_department"})
 public class Department {
 
     @JsonIgnore
@@ -27,46 +26,38 @@ public class Department {
         this.address = new Address();
     }
 
-    //@JsonIgnore
     public long getId_department() {
         return id_department;
     }
 
-    //@JsonIgnore
     public void setId_department(long id_department) {
         this.id_department = id_department;
     }
 
     @XmlAttribute(name = "name")
-    //@JsonGetter("name")
     public String getDepartmentName() {
         return departmentName;
     }
 
-    //@JsonSetter("name")
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
 
     @XmlElement(name = "department_address")
-    //@JsonGetter("address")
     public Address getAddress() {
         return address;
     }
 
-    //@JsonSetter("address")
     public void setAddress(Address address) {
         this.address = address;
     }
 
     @XmlElementWrapper(name = "employees")
     @XmlElement(name = "employee")
-    //@JsonGetter("employees")
     public List<Employee> getEmployeeList() {
         return employeeList;
     }
 
-    //@JsonSetter("employees")
     public void setEmployeeList(List<Employee> employeeList) {
         this.employeeList = employeeList;
     }

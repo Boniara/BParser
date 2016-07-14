@@ -26,67 +26,55 @@ public class Employee {
     }
 
     @XmlAttribute(name = "id")
-    //@JsonGetter("id")
     public long getId_employee() {
         return id_employee;
     }
 
-    //@JsonSetter("id")
     public void setId_employee(long id_employee) {
         this.id_employee = id_employee;
     }
 
     @XmlElement(name = "firstName")
-    //@JsonGetter("firstName")
     public String getFirstName() {
         return firstName;
     }
 
-    //@JsonSetter("firstName")
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     @XmlElement(name = "lastName")
-    //@JsonGetter("lastName")
     public String getLastName() {
         return lastName;
     }
 
-    //@JsonSetter("lastName")
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     @XmlElement(name = "age")
-    //@JsonGetter("age")
     public int getAge() {
         return age;
     }
 
-    //@JsonSetter("age")
     public void setAge(int age) {
         this.age = age;
     }
 
     @XmlElement(name = "position")
-    //@JsonGetter("position")
     public String getPosition() {
         return position;
     }
 
-    //@JsonSetter("position")
     public void setPosition(String position) {
         this.position = position;
     }
 
     @XmlElement(name = "address")
-    //@JsonGetter("address")
     public Address getAddress() {
         return address;
     }
 
-    //@JsonSetter("address")
     public void setAddress(Address address) {
         this.address = address;
     }
