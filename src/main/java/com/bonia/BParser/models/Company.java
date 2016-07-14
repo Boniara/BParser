@@ -59,4 +59,9 @@ public class Company {
     public void setDepartmentList(List<Department> departmentList) {
         this.departmentList = departmentList;
     }
+
+    @Override
+    public String toString() {
+        return getCompanyName();
+    }
 }
