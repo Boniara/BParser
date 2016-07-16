@@ -2,7 +2,7 @@
 
 <company name="roxsoft">
     <departments>
-        <department name="Minsk01">
+        <department name="Minsk01" id="1">
             <department_address>
                 <country>Belarus</country>
                 <city>Minsk</city>
@@ -14,7 +14,9 @@
                     <firstName>Bogdan</firstName>
                     <lastName>Rutkov</lastName>
                     <age>22</age>
-                    <position>Java Developer</position>
+                    <position id="1">
+                        <positionName>Java Developer</positionName>
+                    </position>
                     <address>
                         <country>Belarus</country>
                         <city>Minsk</city>
@@ -26,7 +28,9 @@
                     <firstName>Petr</firstName>
                     <lastName>Petrov</lastName>
                     <age>28</age>
-                    <position>C++ Developer</position>
+                    <position id="2">
+                        <positionName>C++ Developer</positionName>
+                    </position>
                     <address>
                         <country>Belarus</country>
                         <city>Minsk</city>
@@ -38,7 +42,9 @@
                     <firstName>Ivan</firstName>
                     <lastName>Ivanov</lastName>
                     <age>24</age>
-                    <position>C# Developer</position>
+                    <position id="3">
+                        <positionName>C# Developer</positionName>
+                    </position>
                     <address>
                         <country>Belarus</country>
                         <city>Minsk</city>
@@ -50,7 +56,9 @@
                     <firstName>Andrei</firstName>
                     <lastName>Andreev</lastName>
                     <age>22</age>
-                    <position>QA Engineer</position>
+                    <position id="4">
+                        <positionName>QA Engineer</positionName>
+                    </position>
                     <address>
                         <country>Belarus</country>
                         <city>Minsk</city>
@@ -60,7 +68,7 @@
                 </employee>
             </employees>
         </department>
-        <department name="KeyWest01">
+        <department name="KeyWest01" id="2">
             <department_address>
                 <country>USA</country>
                 <city>Key West</city>
@@ -72,7 +80,9 @@
                     <firstName>Bogdan</firstName>
                     <lastName>Rutkov</lastName>
                     <age>22</age>
-                    <position>Java Developer</position>
+                    <position id="4">
+                        <positionName>QA Engineer</positionName>
+                    </position>
                     <address>
                         <country>Belarus</country>
                         <city>Minsk</city>
@@ -84,7 +94,9 @@
                     <firstName>Roman</firstName>
                     <lastName>Rutkov</lastName>
                     <age>23</age>
-                    <position>Java Developer</position>
+                    <position id="1">
+                        <positionName>Java Developer</positionName>
+                    </position>
                     <address>
                         <country>USA</country>
                         <city>Key West</city>
@@ -96,7 +108,9 @@
                     <firstName>Jack</firstName>
                     <lastName>Willson</lastName>
                     <age>32</age>
-                    <position>Project Manager</position>
+                    <position id="5">
+                        <positionName>Project Manager</positionName>
+                    </position>
                     <address>
                         <country>USA</country>
                         <city>Key West</city>
@@ -108,7 +122,9 @@
                     <firstName>Olivia</firstName>
                     <lastName>Bryan</lastName>
                     <age>24</age>
-                    <position>HR Manager</position>
+                    <position id="6">
+                        <positionName>HR Manager</positionName>
+                    </position>
                     <address>
                         <country>USA</country>
                         <city>Key West</city>
@@ -120,7 +136,9 @@
                     <firstName>Walter</firstName>
                     <lastName>White</lastName>
                     <age>48</age>
-                    <position>Pizza man</position>
+                    <position id="7">
+                        <positionName>Pizza man</positionName>
+                    </position>
                     <address>
                         <country>USA</country>
                         <city>Miami</city>

@@ -2,82 +2,26 @@
   "name":"roxsoft",
   "departments":[
     {
-    "name":"Minsk01",
-      "address":{
-        "country":"Belarus",
-        "city":"Minsk",
-        "street":"Mogilevskaia",
-        "house":41
-      },
-    "employees":[
-      {
-      "id":1,
-        "firstName":"Bogdan",
-        "lastName":"Rutkov",
-        "age":22,
-        "position":"Java Developer",
+      "id": 1,
+      "name":"Minsk01",
         "address":{
           "country":"Belarus",
           "city":"Minsk",
-          "street":"Levkova",
-          "house":3
-        }
-      },
-      {
-        "id":2,
-        "firstName":"Petr",
-        "lastName":"Petrov",
-        "age":28,
-        "position":"C++ Developer",
-        "address":{
-          "country":"Belarus",
-          "city":"Minsk",
-          "street":"Voronianskogo",
-          "house":1
-        }
-      },
-      {
-        "id":3,
-        "firstName":"Ivan",
-        "lastName":"Ivanov",
-        "age":24,
-        "position":"C# Developer",
-        "address":{
-          "country":"Belarus",
-          "city":"Minsk",
-          "street":"Odoevskaia",
-          "house":2
-        }
-      },
-      {
-        "id":4,
-        "firstName":"Andrei",
-        "lastName":"Andreev",
-        "age":22,
-        "position":"QA Engineer",
-        "address":{
-          "country":"Belarus",
-          "city":"Minsk",
-          "street":"Jukovskogo",
-          "house":4
-        }
-      }
-    ]
-    },
-    {
-      "name":"KeyWest01",
-      "address":{
-        "country":"USA",
-        "city":"Key West",
-        "street":"1st street",
-        "house":27
-      },
+          "street":"Mogilevskaia",
+          "house":41
+        },
       "employees":[
         {
-          "id":1,
+        "id":1,
           "firstName":"Bogdan",
           "lastName":"Rutkov",
-          "age":22,"position":"Java Developer",
+          "age":22,
+          "position":[
+            {
+              "id": 1,
+              "positionName": "Java Developer"
+            }
+            ],
           "address":{
             "country":"Belarus",
             "city":"Minsk",
@@ -86,57 +30,161 @@
           }
         },
         {
-          "id":5,
-          "firstName":"Roman",
-          "lastName":"Rutkov",
-          "age":23,
-          "position":"Java Developer",
+          "id":2,
+          "firstName":"Petr",
+          "lastName":"Petrov",
+          "age":28,
+          "position":[
+            {
+              "id": 2,
+              "positionName": "C++ Developer"
+            }
+          ],
           "address":{
-            "country":"USA",
-            "city":"Key West",
-            "street":"Patterson avenue",
-            "house":3
-          }
-        },
-        {
-          "id":6,
-          "firstName":"Jack",
-          "lastName":"Willson",
-          "age":32,
-          "position":"Project Manager",
-          "address":{"country":"USA",
-            "city":"Key West",
-            "street":"4th street",
+            "country":"Belarus",
+            "city":"Minsk",
+            "street":"Voronianskogo",
             "house":1
           }
         },
         {
-          "id":7,
-          "firstName":"Olivia",
-          "lastName":"Bryan",
+          "id":3,
+          "firstName":"Ivan",
+          "lastName":"Ivanov",
           "age":24,
-          "position":"HR Manager",
+          "position":[
+            {
+              "id": 3,
+              "positionName": "C# Developer"
+            }
+          ],
           "address":{
-            "country":"USA",
-            "city":"Key West",
-            "street":"1st avenue",
+            "country":"Belarus",
+            "city":"Minsk",
+            "street":"Odoevskaia",
             "house":2
           }
         },
         {
-          "id":8,
-          "firstName":"Walter",
-          "lastName":"White",
-          "age":48,
-          "position":"Pizza man",
+          "id":4,
+          "firstName":"Andrei",
+          "lastName":"Andreev",
+          "age":22,
+          "position":[
+            {
+              "id": 4,
+              "positionName": "QA Engineer"
+            }
+          ],
           "address":{
-            "country":"USA",
-            "city":"Miami",
-            "street":"Bitch",
-            "house":1
+            "country":"Belarus",
+            "city":"Minsk",
+            "street":"Jukovskogo",
+            "house":4
           }
         }
       ]
+      },
+      {
+        "id": 2,
+        "name":"KeyWest01",
+        "address":{
+          "country":"USA",
+          "city":"Key West",
+          "street":"1st street",
+          "house":27
+        },
+        "employees":[
+          {
+            "id":1,
+            "firstName":"Bogdan",
+            "lastName":"Rutkov",
+            "age":22,
+            "position":[
+              {
+                "id": 4,
+                "positionName": "QA Engineer"
+              }
+            ],
+            "address":{
+              "country":"Belarus",
+              "city":"Minsk",
+              "street":"Levkova",
+              "house":3
+            }
+          },
+          {
+            "id":5,
+            "firstName":"Roman",
+            "lastName":"Rutkov",
+            "age":23,
+            "position":[
+              {
+                "id": 1,
+                "positionName": "Java Developer"
+              }
+            ],
+            "address":{
+              "country":"USA",
+              "city":"Key West",
+              "street":"Patterson avenue",
+              "house":3
+            }
+          },
+          {
+            "id":6,
+            "firstName":"Jack",
+            "lastName":"Willson",
+            "age":32,
+            "position":[
+              {
+                "id": 5,
+                "positionName": "Project Manager"
+              }
+            ],
+            "address":{"country":"USA",
+              "city":"Key West",
+              "street":"4th street",
+              "house":1
+            }
+          },
+          {
+            "id":7,
+            "firstName":"Olivia",
+            "lastName":"Bryan",
+            "age":24,
+            "position":[
+              {
+                "id": 6,
+                "positionName": "HR Manager"
+              }
+            ],
+            "address":{
+              "country":"USA",
+              "city":"Key West",
+              "street":"1st avenue",
+              "house":2
+            }
+          },
+          {
+            "id":8,
+            "firstName":"Walter",
+            "lastName":"White",
+            "age":48,
+            "position":[
+              {
+                "id": 7,
+                "positionName": "Pizza man"
+              }
+            ],
+            "address":{
+              "country":"USA",
+              "city":"Miami",
+              "street":"Bitch",
+              "house":1
+            }
+          }
+        ]
     }
   ]
 }

@@ -17,4 +17,5 @@ public interface HandlerConstantSource {
     String CITY = "city";
     String STREET = "street";
     String HOUSE = "house";
+    String POSITION_NAME = "positionName";
 }

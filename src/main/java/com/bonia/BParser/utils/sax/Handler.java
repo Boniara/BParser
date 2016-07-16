@@ -1,9 +1,6 @@
 package com.bonia.BParser.utils.sax;
 
-import com.bonia.BParser.models.Address;
-import com.bonia.BParser.models.Company;
-import com.bonia.BParser.models.Department;
-import com.bonia.BParser.models.Employee;
+import com.bonia.BParser.models.*;
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -22,6 +19,8 @@ public class Handler extends DefaultHandler {
     private Department department;
     private List<Company> companyList;
     private Company company;
+    private Position position;
+    private List<Position> positionList;
     private boolean bDepartmentAddress;
     private String element;
     IHandler handler = new CompanyHandler();
@@ -33,6 +32,8 @@ public class Handler extends DefaultHandler {
         this.employee = new Employee();
         this.department = new Department();
         this.company = new Company();
+        this.position = new Position();
+        this.positionList = new ArrayList<>();
         this.bDepartmentAddress = true;
         this.element = "";
     }
@@ -89,13 +90,17 @@ public class Handler extends DefaultHandler {
             switch(element) {
                 case COMPANY: company.setCompanyName(attributes.getValue(NAME));
                     break;
-                case DEPARTMENT: department.setDepartmentName(attributes.getValue(NAME));
+                case DEPARTMENT:
+                    department.setDepartmentName(attributes.getValue(NAME));
+                    department.setIdDepartment(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 case EMPLOYEE: employee.setIdEmployee(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 case DEPARTMENT_ADDRESS: bDepartmentAddress = true;
                     break;
                 case ADDRESS: bDepartmentAddress = false;
+                    break;
+                case POSITION: position.setIdPosition(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 default: break;
             }
@@ -117,11 +122,19 @@ public class Handler extends DefaultHandler {
                     department = new Department();
                     break;
                 case EMPLOYEE:
+                    employee.setPositionList(positionList);
                     employeeList.add(employee);
                     employee = new Employee();
+                    position = new Position();
+                    positionList = new ArrayList<>();
                     break;
                 case DEPARTMENT_ADDRESS: break;
                 case ADDRESS: break;
+                case POSITION:
+                    position.setIdDepartment(department.getIdDepartment());
+                    position.setIdEmployee(employee.getIdEmployee());
+                    positionList.add(position);
+                    break;
                 default: break;
             }
         }
@@ -139,9 +152,6 @@ public class Handler extends DefaultHandler {
                 case AGE:
                     employee.setAge(Integer.parseInt(parameter));
                     break;
-                case POSITION:
-                    employee.setPosition(parameter);
-                    break;
                 case COUNTRY:
                     localAddress = (bDepartmentAddress == true) ? department.getAddress() : employee.getAddress();
                     localAddress.setCountryName(parameter);
@@ -157,6 +167,9 @@ public class Handler extends DefaultHandler {
                 case HOUSE:
                     localAddress = (bDepartmentAddress == true) ? department.getAddress() : employee.getAddress();
                     localAddress.setHouseNumber(Integer.parseInt(parameter));
+                    break;
+                case POSITION_NAME:
+                    position.setPositionName(parameter);
                     break;
             }
         }

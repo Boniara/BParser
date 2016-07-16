@@ -4,6 +4,7 @@ import com.bonia.BParser.io.IFileOutput;
 import com.bonia.BParser.models.Company;
 import com.bonia.BParser.models.Department;
 import com.bonia.BParser.models.Employee;
+import com.bonia.BParser.models.Position;
 import org.apache.log4j.Logger;
 import java.util.List;
 
@@ -41,13 +42,15 @@ public class OutputToConsole<T> implements IFileOutput<T> {
     private void companyOutput(Company company) {
         for(Department department: company.getDepartmentList()) {
             for(Employee employee: department.getEmployeeList()) {
-                System.out.println(company.getCompanyName() + ": " + department.getDepartmentName() + ": "
-                        + department.getAddress().getCountryName() + ", " + department.getAddress().getCityName() + ", "
-                        + department.getAddress().getStreetName() + ", " + department.getAddress().getHouseNumber() + ": "
-                        + employee.getIdEmployee() + " " +  employee.getFirstName() + " " + employee.getLastName() + " "
-                        + employee.getAge() + " " + employee.getPosition() + " - "
-                        + employee.getAddress().getCountryName() + ", " + employee.getAddress().getCityName() + ", "
-                        + employee.getAddress().getStreetName() + ", " + employee.getAddress().getHouseNumber());
+                for(Position position: employee.getPositionList()) {
+                    System.out.println(company.getCompanyName() + ": " + department.getDepartmentName() + ": "
+                            + department.getAddress().getCountryName() + ", " + department.getAddress().getCityName() + ", "
+                            + department.getAddress().getStreetName() + ", " + department.getAddress().getHouseNumber() + ": "
+                            + employee.getIdEmployee() + " " + employee.getFirstName() + " " + employee.getLastName() + " "
+                            + employee.getAge() + " - " + position.getIdPosition() + " " + position.getPositionName() + " - "
+                            + employee.getAddress().getCountryName() + ", " + employee.getAddress().getCityName() + ", "
+                            + employee.getAddress().getStreetName() + ", " + employee.getAddress().getHouseNumber());
+                }
             }
         }
     }

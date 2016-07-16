@@ -1,6 +1,5 @@
 package com.bonia.BParser.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -12,7 +11,7 @@ import java.util.List;
 @XmlRootElement(name = "department")
 public class Department {
 
-    @JsonIgnore
+    @JsonProperty("id")
     private long idDepartment;
     @JsonProperty("name")
     private String departmentName;
@@ -26,6 +25,7 @@ public class Department {
         this.address = new Address();
     }
 
+    @XmlAttribute(name = "id")
     public long getIdDepartment() {
         return idDepartment;
     }

@@ -1,9 +1,12 @@
 package com.bonia.BParser.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.List;
 
 @XmlRootElement(name = "employee")
 public class Employee {
@@ -16,13 +19,14 @@ public class Employee {
     private String lastName;
     @JsonProperty("age")
     private int age;
-    @JsonProperty("position")
-    private String position;
     @JsonProperty("address")
     private Address address;
+    @JsonProperty("position")
+    private List<Position> positionList;
 
     public Employee() {
         this.address = new Address();
+        this.positionList = new ArrayList<>();
     }
 
     @XmlAttribute(name = "id")
@@ -61,15 +65,6 @@ public class Employee {
         this.age = age;
     }
 
-    @XmlElement(name = "position")
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
     @XmlElement(name = "address")
     public Address getAddress() {
         return address;
@@ -79,9 +74,18 @@ public class Employee {
         this.address = address;
     }
 
+    @XmlElement(name = "position")
+    public List<Position> getPositionList() {
+        return positionList;
+    }
+
+    public void setPositionList(List<Position> positionList) {
+        this.positionList = positionList;
+    }
+
     @Override
     public String toString() {
-        return getIdEmployee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " " + getPosition()
-                + getAddress().toString();
+        return getIdEmployee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " "
+                + getPositionList().toString() + " " + getAddress().toString();
     }
 }
