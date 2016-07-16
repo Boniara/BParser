@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "employee")
-public class Employee {
+public class Employee extends Model {
 
     @JsonProperty("id")
-    private long idEmployee;
+    private long id;
     @JsonProperty("firstName")
     private String firstName;
     @JsonProperty("lastName")
@@ -30,12 +30,14 @@ public class Employee {
     }
 
     @XmlAttribute(name = "id")
-    public long getIdEmployee() {
-        return idEmployee;
+    @Override
+    public long getId() {
+        return id;
     }
 
-    public void setIdEmployee(long idEmployee) {
-        this.idEmployee = idEmployee;
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     @XmlElement(name = "firstName")
@@ -85,7 +87,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return getIdEmployee() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " "
+        return getId() + " " + getFirstName() + " " + getLastName() + " " + getAge() + " "
                 + getPositionList().toString() + " " + getAddress().toString();
     }
 }

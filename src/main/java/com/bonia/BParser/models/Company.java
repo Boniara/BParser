@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "company")
-public class Company {
+public class Company extends Model {
 
     @JsonIgnore
-    private long idCompany;
+    private long id;
     @JsonProperty("name")
     private String companyName;
     @JsonProperty("departments")
@@ -24,12 +24,14 @@ public class Company {
         this.departmentList = new ArrayList<>();
     }
 
-    public long getIdCompany() {
-        return idCompany;
+    @Override
+    public long getId() {
+        return id;
     }
 
-    public void setIdCompany(long idCompany) {
-        this.idCompany = idCompany;
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     @XmlAttribute(name = "name")

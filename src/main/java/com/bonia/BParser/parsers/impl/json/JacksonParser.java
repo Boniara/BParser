@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.IOException;
 
-public class JacksonParser<T> implements IParser<T> {
+public class JacksonParser implements IParser<Company> {
 
     private static final Logger LOG = Logger.getLogger(JacksonParser.class);
 
@@ -21,7 +21,7 @@ public class JacksonParser<T> implements IParser<T> {
     }
 
     @Override
-    public T parse(String fileName) {
+    public Company parse(String fileName) {
         LOG.info("JACKSON PARSER IS STARTING.");
 
         try {
@@ -31,7 +31,7 @@ public class JacksonParser<T> implements IParser<T> {
         }
         LOG.info("JACKSON PARSER IS FINISHING.");
         LOG.debug(company.toString());
-        return (T)company;
+        return company;
     }
 
 

@@ -6,10 +6,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "address")
-public class Address {
+public class Address extends Model {
 
     @JsonIgnore
-    private long idAddress;
+    private long id;
     @JsonProperty("country")
     private String countryName;
     @JsonProperty("city")
@@ -22,12 +22,14 @@ public class Address {
     public Address() {
     }
 
-    public long getIdAddress() {
-        return idAddress;
+    @Override
+    public long getId() {
+        return id;
     }
 
-    public void setIdAddress(long idAddress) {
-        this.idAddress = idAddress;
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     @XmlElement(name = "country")

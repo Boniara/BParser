@@ -3,18 +3,17 @@ package com.bonia.BParser.parsers.impl.xml;
 import com.bonia.BParser.models.Company;
 import com.bonia.BParser.parsers.IParser;
 import org.apache.log4j.Logger;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
-public class JaxBParser<T> implements IParser<T> {
+public class JaxBParser implements IParser<Company> {
 
     private JAXBContext context;
     private Unmarshaller unmarshaller;
-    private T t;
+    private Company company;
 
     private static final Logger LOG = Logger.getLogger(JaxBParser.class);
 
@@ -22,24 +21,24 @@ public class JaxBParser<T> implements IParser<T> {
     }
 
     @Override
-    public T parse(String fileName) {
+    public Company parse(String fileName) {
         LOG.info("JAXB PARSER IS STARTING.");
 
         try {
             context = JAXBContext.newInstance(Company.class);
             unmarshaller = context.createUnmarshaller();
-            t = (T)unmarshaller.unmarshal(new File(fileName));
+            company = (Company)unmarshaller.unmarshal(new File(fileName));
         } catch (JAXBException e) {
             LOG.error("JAXBException while context up.", e);
         }
         LOG.info("JAXB PARSER IS FINISHING.");
-        LOG.debug(t.toString());
-        return t;
+        LOG.debug(company.toString());
+        return company;
     }
 
     /**
      * Methode use to init simple Company class structure for JaxbParser.
-     * @deprecated, because don`t use in application logic.
+     * @deprecated, because don`company use in application logic.
      * @see Company
      */
     @Deprecated

@@ -1,6 +1,8 @@
 package com.bonia.BParser.parsers;
 
-public interface IParser<T> {
+import com.bonia.BParser.models.Model;
+
+public interface IParser<T extends Model> {
 
     public T parse(String fileName);
 }

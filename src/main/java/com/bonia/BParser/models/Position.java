@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Position {
 
     @JsonProperty("id")
-    private long idPosition;
+    private long id;
     @JsonProperty("positionName")
     private String positionName;
     @JsonIgnore
@@ -23,12 +23,12 @@ public class Position {
     }
 
     @XmlAttribute(name = "id")
-    public long getIdPosition() {
-        return idPosition;
+    public long getId() {
+        return id;
     }
 
-    public void setIdPosition(long idPosition) {
-        this.idPosition = idPosition;
+    public void setId(long id) {
+        this.id = id;
     }
 
     @XmlElement(name = "positionName")
@@ -58,6 +58,6 @@ public class Position {
 
     @Override
     public String toString() {
-        return getIdPosition() + " " + getPositionName();
+        return getId() + " " + getPositionName();
     }
 }

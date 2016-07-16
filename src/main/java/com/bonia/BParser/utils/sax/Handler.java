@@ -92,15 +92,15 @@ public class Handler extends DefaultHandler {
                     break;
                 case DEPARTMENT:
                     department.setDepartmentName(attributes.getValue(NAME));
-                    department.setIdDepartment(Integer.parseInt(attributes.getValue(ID)));
+                    department.setId(Integer.parseInt(attributes.getValue(ID)));
                     break;
-                case EMPLOYEE: employee.setIdEmployee(Integer.parseInt(attributes.getValue(ID)));
+                case EMPLOYEE: employee.setId(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 case DEPARTMENT_ADDRESS: bDepartmentAddress = true;
                     break;
                 case ADDRESS: bDepartmentAddress = false;
                     break;
-                case POSITION: position.setIdPosition(Integer.parseInt(attributes.getValue(ID)));
+                case POSITION: position.setId(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 default: break;
             }
@@ -131,8 +131,8 @@ public class Handler extends DefaultHandler {
                 case DEPARTMENT_ADDRESS: break;
                 case ADDRESS: break;
                 case POSITION:
-                    position.setIdDepartment(department.getIdDepartment());
-                    position.setIdEmployee(employee.getIdEmployee());
+                    position.setIdDepartment(department.getId());
+                    position.setIdEmployee(employee.getId());
                     positionList.add(position);
                     break;
                 default: break;

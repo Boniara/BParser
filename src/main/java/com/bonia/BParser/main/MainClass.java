@@ -21,15 +21,15 @@ public class MainClass {
 
         IFileOutput<Company> output = new OutputToConsole<>();
 
-        IParser<Company> parser = new SaxParser<>();
+        IParser<Company> parser = new SaxParser();
         Company company = parser.parse(XML_FILE_NAME);
         output.write(company);
 
-        parser = new JaxBParser<>();
+        parser = new JaxBParser();
         Company company1 = parser.parse(XML_FILE_NAME);
         output.write(company1);
 
-        parser = new JacksonParser<>();
+        parser = new JacksonParser();
         Company company2 = parser.parse(JSON_FILE_NAME);
         output.write(company2);
     }
