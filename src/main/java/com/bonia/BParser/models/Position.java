@@ -2,16 +2,13 @@ package com.bonia.BParser.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "position")
-public class Position {
+public class Position extends AbstractModel {
 
-    @JsonProperty("id")
-    private long id;
     @JsonProperty("positionName")
     private String positionName;
     @JsonIgnore
@@ -23,12 +20,14 @@ public class Position {
     }
 
     @XmlAttribute(name = "id")
+    @Override
     public long getId() {
-        return id;
+        return super.getId();
     }
 
+    @Override
     public void setId(long id) {
-        this.id = id;
+        super.setId(id);
     }
 
     @XmlElement(name = "positionName")
@@ -40,7 +39,8 @@ public class Position {
         this.positionName = positionName;
     }
 
-    public long getIdDepartment() {
+    public long
+    getIdDepartment() {
         return idDepartment;
     }
 

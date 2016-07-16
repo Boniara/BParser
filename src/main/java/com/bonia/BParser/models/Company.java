@@ -1,7 +1,6 @@
 package com.bonia.BParser.models;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -11,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "company")
-public class Company extends Model {
+@JsonIgnoreProperties({"id"})
+public class Company extends AbstractModel {
 
-    @JsonIgnore
-    private long id;
     @JsonProperty("name")
     private String companyName;
     @JsonProperty("departments")
@@ -26,12 +24,12 @@ public class Company extends Model {
 
     @Override
     public long getId() {
-        return id;
+        return super.getId();
     }
 
     @Override
     public void setId(long id) {
-        this.id = id;
+        super.setId(id);
     }
 
     @XmlAttribute(name = "name")

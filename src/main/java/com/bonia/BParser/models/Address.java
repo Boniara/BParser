@@ -1,15 +1,15 @@
 package com.bonia.BParser.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "address")
-public class Address extends Model {
+@JsonIgnoreProperties({"id"})
+public class Address extends AbstractModel {
 
-    @JsonIgnore
-    private long id;
     @JsonProperty("country")
     private String countryName;
     @JsonProperty("city")
@@ -24,12 +24,12 @@ public class Address extends Model {
 
     @Override
     public long getId() {
-        return id;
+        return super.getId();
     }
 
     @Override
     public void setId(long id) {
-        this.id = id;
+        super.setId(id);
     }
 
     @XmlElement(name = "country")

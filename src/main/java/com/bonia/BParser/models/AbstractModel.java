@@ -1,10 +1,13 @@
 package com.bonia.BParser.models;
 
-public class Model {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+public abstract class AbstractModel {
+
+    @JsonProperty("id")
     private long id;
 
-    public Model() {
+    public AbstractModel() {
     }
 
     public long getId() {

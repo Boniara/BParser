@@ -9,10 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "department")
-public class Department extends Model {
+public class Department extends AbstractModel {
 
-    @JsonProperty("id")
-    private long id;
     @JsonProperty("name")
     private String departmentName;
     @JsonProperty("employees")
@@ -28,12 +26,12 @@ public class Department extends Model {
     @XmlAttribute(name = "id")
     @Override
     public long getId() {
-        return id;
+        return super.getId();
     }
 
     @Override
     public void setId(long id) {
-        this.id = id;
+        super.setId(id);
     }
 
     @XmlAttribute(name = "name")
