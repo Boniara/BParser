@@ -2,10 +2,9 @@ package com.bonia.BParser.main;
 
 import com.bonia.BParser.io.IFileOutput;
 import com.bonia.BParser.io.impl.OutputToConsole;
+import com.bonia.BParser.jdbc.controllers.dao.CompanyController;
 import com.bonia.BParser.models.Company;
 import com.bonia.BParser.parsers.IParser;
-import com.bonia.BParser.parsers.impl.json.JacksonParser;
-import com.bonia.BParser.parsers.impl.xml.JaxBParser;
 import com.bonia.BParser.parsers.impl.xml.SaxParser;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -25,12 +24,19 @@ public class MainClass {
         Company company = parser.parse(XML_FILE_NAME);
         output.write(company);
 
-        parser = new JaxBParser();
+        CompanyController companyController = new CompanyController();
+        //companyController.create(company);
+        /*List<Company> companyList = companyController.getAll();
+        Company comp = companyController.getById((long) 1);
+
+        System.out.println(comp.toString());*/
+
+        /*parser = new JaxBParser();
         Company company1 = parser.parse(XML_FILE_NAME);
         output.write(company1);
 
         parser = new JacksonParser();
         Company company2 = parser.parse(JSON_FILE_NAME);
-        output.write(company2);
+        output.write(company2);*/
     }
 }
