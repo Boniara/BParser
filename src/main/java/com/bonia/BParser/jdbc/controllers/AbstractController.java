@@ -1,6 +1,6 @@
 package com.bonia.BParser.jdbc.controllers;
 
-import com.bonia.BParser.jdbc.DBConnection;
+import com.bonia.BParser.utils.jdbc.DBConnection;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;

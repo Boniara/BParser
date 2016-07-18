@@ -1,4 +1,4 @@
-package com.bonia.BParser.utils.jdbc;
+package com.bonia.BParser.utils.jdbc.constants;
 
 public interface DepartmentControllerConstantSource {
 

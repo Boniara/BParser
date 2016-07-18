@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import static com.bonia.BParser.utils.jdbc.EmployeeControllerConstantSource.*;
+import static com.bonia.BParser.utils.jdbc.constants.EmployeeControllerConstantSource.*;
 
 public class EmployeeController extends AbstractController<Employee, Long> {
 

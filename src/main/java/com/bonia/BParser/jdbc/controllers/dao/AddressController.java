@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import static com.bonia.BParser.utils.jdbc.AddressControllerConstantSource.*;
+import static com.bonia.BParser.utils.jdbc.constants.AddressControllerConstantSource.*;
 
 public class AddressController extends AbstractController<Address, Long> {
 
