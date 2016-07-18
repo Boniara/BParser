@@ -106,6 +106,6 @@ public class DepartmentController extends AbstractController<Department, Long> {
 
     @Override
     public void delete(Long id) {
-
+        delete(DELETE, id);
     }
 }

@@ -8,4 +8,5 @@ public interface PositionControllerConstantSource {
             "FROM _position p INNER JOIN employee_department ed ON (p.id = ed.position_id AND e.id = ?)";
     String INSERT = "INSERT IGNORE INTO _position (positionName) VALUES (?)";
     String INSERT_STRUCTURE = "INSERT IGNORE INTO _position (positionName, id) VALUES (?, ?)";
+    String DELETE = "DELETE FROM position WHERE position.id = ?";
 }

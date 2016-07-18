@@ -39,6 +39,19 @@ public abstract class AbstractController<E, K> {
         create(entity);
     }
 
+    protected void delete(String deleteQuery, Long id) {
+        PreparedStatement preparedStatement = null;
+        preparedStatement = getPreparedStatement(deleteQuery);
+        try {
+            preparedStatement.setLong(1, id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            LOG.error("SQLException", e);
+        } finally {
+            closePreparedStatement(preparedStatement);
+        }
+    }
+
     public void closePreparedStatement(PreparedStatement preparedStatement) {
         if(preparedStatement != null) {
             try {

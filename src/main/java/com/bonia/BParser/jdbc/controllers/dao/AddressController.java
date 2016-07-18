@@ -91,6 +91,6 @@ public class AddressController extends AbstractController<Address, Long> {
 
     @Override
     public void delete(Long id) {
-
+        delete(DELETE, id);
     }
 }

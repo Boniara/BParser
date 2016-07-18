@@ -107,6 +107,6 @@ public class EmployeeController extends AbstractController<Employee, Long> {
 
     @Override
     public void delete(Long id) {
-
+        delete(DELETE, id);
     }
 }

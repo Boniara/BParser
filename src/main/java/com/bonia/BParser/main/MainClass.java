@@ -29,6 +29,7 @@ public class MainClass {
         StructureController structureController = new StructureController();
         structureController.createStructureByCompany(company);
 
+
         parser = new JaxBParser();
         Company company1 = parser.parse(XML_FILE_NAME);
         output.write(company1);

@@ -95,6 +95,6 @@ public class CompanyController extends AbstractController<Company, Long> {
 
     @Override
     public void delete(Long id) {
-
+        delete(DELETE, id);
     }
 }

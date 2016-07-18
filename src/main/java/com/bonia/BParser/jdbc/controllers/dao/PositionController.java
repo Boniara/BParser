@@ -89,6 +89,6 @@ public class PositionController extends AbstractController<Position, Long> {
 
     @Override
     public void delete(Long id) {
-
+        delete(DELETE, id);
     }
 }

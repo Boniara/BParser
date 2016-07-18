@@ -9,4 +9,5 @@ public interface DepartmentControllerConstantSource {
     String INSERT = "INSERT IGNORE INTO department (departmentName, company_id, address_id) VALUES (?, ?, ?)";
     String INSERT_STRUCTURE = "INSERT IGNORE INTO department (departmentName, company_id, address_id, id) VALUES (?, ?, ?, ?)";
     String INSERT_INTO_ED = "INSERT IGNORE INTO employee_department VALUES (?, ?, ?)";
+    String DELETE = "DELETE FROM department WHERE department.id = ?";
 }
