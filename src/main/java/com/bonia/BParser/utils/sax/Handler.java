@@ -88,7 +88,9 @@ public class Handler extends DefaultHandler {
         @Override
         public void initStartElement(String element, Attributes attributes) {
             switch(element) {
-                case COMPANY: company.setCompanyName(attributes.getValue(NAME));
+                case COMPANY:
+                    company.setCompanyName(attributes.getValue(NAME));
+                    company.setId(Integer.parseInt(attributes.getValue(ID)));
                     break;
                 case DEPARTMENT:
                     department.setDepartmentName(attributes.getValue(NAME));
@@ -96,9 +98,13 @@ public class Handler extends DefaultHandler {
                     break;
                 case EMPLOYEE: employee.setId(Integer.parseInt(attributes.getValue(ID)));
                     break;
-                case DEPARTMENT_ADDRESS: bDepartmentAddress = true;
+                case DEPARTMENT_ADDRESS:
+                    department.getAddress().setId(Integer.parseInt(attributes.getValue(ID)));
+                    bDepartmentAddress = true;
                     break;
-                case ADDRESS: bDepartmentAddress = false;
+                case ADDRESS:
+                    employee.getAddress().setId(Integer.parseInt(attributes.getValue(ID)));
+                    bDepartmentAddress = false;
                     break;
                 case POSITION: position.setId(Integer.parseInt(attributes.getValue(ID)));
                     break;

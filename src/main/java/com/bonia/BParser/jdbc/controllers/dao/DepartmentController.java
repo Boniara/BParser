@@ -4,23 +4,18 @@ import com.bonia.BParser.jdbc.controllers.AbstractController;
 import com.bonia.BParser.models.Department;
 import com.bonia.BParser.models.Employee;
 import org.apache.log4j.Logger;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static com.bonia.BParser.utils.jdbc.DepartmentControllerConstantSource.*;
 
 public class DepartmentController extends AbstractController<Department, Long> {
 
     private static final Logger LOG = Logger.getLogger(DepartmentController.class);
 
-    private static final String GET_ALL = "SELECT d.id, d.departmentName, ed.employee_id, d.address_id FROM department d" +
-            "INNER JOIN employee_department ed ON (d.id = ed.department_id)";;
-    private static final String GET_BY_ID = "SELECT d.id, d.departmentName, ed.employee_id, d.address_id FROM department d" +
-            "INNER JOIN employee_department ed ON (d.id = ed.department_id AND d.id = ?)";
-    private static final String INSERT = "INSERT INTO department (departmentName, company_id, address_id) VALUES (?, ?, ?)";
-    private static final String INSERT_INTO_ED = "INSERT INTO employee_department VALUES (?, ?, ?)";
+    private boolean bStructure = false;
 
     public DepartmentController() {
     }
@@ -49,6 +44,7 @@ public class DepartmentController extends AbstractController<Department, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Departments returned");
         return departmentList;
     }
 
@@ -72,13 +68,20 @@ public class DepartmentController extends AbstractController<Department, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Department returned");
         return department;
     }
 
     @Override
     public void create(Department department) {
-        PreparedStatement preparedStatement = getPreparedStatement(INSERT);
+        PreparedStatement preparedStatement = null;
+        if(bStructure == true) {
+            preparedStatement = getPreparedStatement(INSERT_STRUCTURE);
+        } else preparedStatement = getPreparedStatement(INSERT);
         try {
+            if(bStructure == true) {
+                preparedStatement.setLong(4, department.getId());
+            }
             preparedStatement.setString(1, department.getDepartmentName());
             preparedStatement.setLong(2, 1); // Bug
             preparedStatement.setLong(3, department.getAddress().getId());
@@ -93,6 +96,7 @@ public class DepartmentController extends AbstractController<Department, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Department created");
     }
 
     @Override

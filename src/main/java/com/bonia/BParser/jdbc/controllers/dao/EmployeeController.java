@@ -4,24 +4,18 @@ import com.bonia.BParser.jdbc.controllers.AbstractController;
 import com.bonia.BParser.models.Employee;
 import com.bonia.BParser.models.Position;
 import org.apache.log4j.Logger;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static com.bonia.BParser.utils.jdbc.EmployeeControllerConstantSource.*;
 
 public class EmployeeController extends AbstractController<Employee, Long> {
 
     private static final Logger LOG = Logger.getLogger(EmployeeController.class);
 
-    private static final String GET_ALL = "SELECT e.id, e.firstName, e.lastName, e.age, e.address_id, ed.position_id," +
-            "ed.department_id FROM employee e INNER JOIN employee_department ed ON (e.id = ed.employee_id)" +
-            "INNER JOIN position p ON (ed.position_id = p.id)";
-    private static final String GET_BY_ID = "SELECT e.id, e.firstName, e.lastName, e.age, e.address_id, ed.position_id," +
-            "ed.department_id FROM employee e INNER JOIN employee_department ed ON (e.id = ed.employee_id AND e.id = ?)" +
-            "INNER JOIN position p ON (ed.position_id = p.id)";
-    private static final String INSERT = "INSERT INTO employee (firstName, lastName, age, address_id) VALUES (?, ?, ?, ?)";
+    private boolean bStructure = false;
 
     public EmployeeController() {
     }
@@ -52,6 +46,7 @@ public class EmployeeController extends AbstractController<Employee, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Employees returned");
         return employeeList;
     }
 
@@ -77,13 +72,20 @@ public class EmployeeController extends AbstractController<Employee, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Employee returned");
         return employee;
     }
 
     @Override
     public void create(Employee employee) {
-        PreparedStatement preparedStatement = getPreparedStatement(INSERT);
+        PreparedStatement preparedStatement = null;
+        if(bStructure == true) {
+            preparedStatement = getPreparedStatement(INSERT_STRUCTURE);
+        } else preparedStatement = getPreparedStatement(INSERT);
         try {
+            if(bStructure == true) {
+                preparedStatement.setLong(5, employee.getId());
+            }
             preparedStatement.setString(1, employee.getFirstName());
             preparedStatement.setString(2, employee.getLastName());
             preparedStatement.setInt(3, employee.getAge());
@@ -95,6 +97,7 @@ public class EmployeeController extends AbstractController<Employee, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Emplyee created");
     }
 
     @Override

@@ -3,22 +3,18 @@ package com.bonia.BParser.jdbc.controllers.dao;
 import com.bonia.BParser.jdbc.controllers.AbstractController;
 import com.bonia.BParser.models.Position;
 import org.apache.log4j.Logger;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static com.bonia.BParser.utils.jdbc.PositionControllerConstantSource.*;
 
 public class PositionController extends AbstractController<Position, Long> {
 
     private static final Logger LOG = Logger.getLogger(PositionController.class);
 
-    private static final String GET_ALL = "SELECT p.id, p.positionName, ed.department_id, ed.employee_id" +
-            "FROM position p INNER JOIN employee_department ed ON (p.id = ed.position_id)";
-    private static final String GET_BY_ID = "SELECT p.id, p.positionName, ed.department_id, ed.employee_id" +
-            "FROM position p INNER JOIN employee_department ed ON (p.id = ed.position_id AND e.id = ?)";
-    private static final String INSERT = "INSERT INTO position (positionName, lastName) VALUES (?)";
+    private boolean bStructure = false;
 
     public PositionController() {
     }
@@ -42,6 +38,7 @@ public class PositionController extends AbstractController<Position, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Positions returned");
         return positionList;
     }
 
@@ -61,13 +58,20 @@ public class PositionController extends AbstractController<Position, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Position returned");
         return position;
     }
 
     @Override
     public void create(Position position) {
-        PreparedStatement preparedStatement = getPreparedStatement(INSERT);
+        PreparedStatement preparedStatement = null;
+        if(bStructure == true) {
+            preparedStatement = getPreparedStatement(INSERT_STRUCTURE);
+        } else preparedStatement = getPreparedStatement(INSERT);
         try {
+            if(bStructure == true) {
+                preparedStatement.setLong(2, position.getId());
+            }
             preparedStatement.setString(1, position.getPositionName());
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -75,6 +79,7 @@ public class PositionController extends AbstractController<Position, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Position created");
     }
 
     @Override

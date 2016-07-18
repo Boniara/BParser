@@ -43,13 +43,15 @@ public class OutputToConsole<T> implements IFileOutput<T> {
         for(Department department: company.getDepartmentList()) {
             for(Employee employee: department.getEmployeeList()) {
                 for(Position position: employee.getPositionList()) {
-                    System.out.println(company.getCompanyName() + ": " + department.getDepartmentName() + ": "
-                            + department.getAddress().getCountryName() + ", " + department.getAddress().getCityName() + ", "
+                    System.out.println(company.getId() + " " + company.getCompanyName() + ": " + department.getDepartmentName() + ": "
+                            + " " + department.getAddress().getId() + " " + department.getAddress().getCountryName() + ", "
+                            + department.getAddress().getCityName() + ", "
                             + department.getAddress().getStreetName() + ", " + department.getAddress().getHouseNumber() + ": "
                             + employee.getId() + " " + employee.getFirstName() + " " + employee.getLastName() + " "
                             + employee.getAge() + " - " + position.getId() + " " + position.getPositionName() + " - "
-                            + employee.getAddress().getCountryName() + ", " + employee.getAddress().getCityName() + ", "
-                            + employee.getAddress().getStreetName() + ", " + employee.getAddress().getHouseNumber());
+                            + " " + employee.getAddress().getId() + " " + employee.getAddress().getCountryName() + ", "
+                            + employee.getAddress().getCityName() + ", " + employee.getAddress().getStreetName() + ", "
+                            + employee.getAddress().getHouseNumber());
                 }
             }
         }

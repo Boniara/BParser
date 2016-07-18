@@ -3,20 +3,18 @@ package com.bonia.BParser.jdbc.controllers.dao;
 import com.bonia.BParser.jdbc.controllers.AbstractController;
 import com.bonia.BParser.models.Address;
 import org.apache.log4j.Logger;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static com.bonia.BParser.utils.jdbc.AddressControllerConstantSource.*;
 
 public class AddressController extends AbstractController<Address, Long> {
 
     private static final Logger LOG = Logger.getLogger(AddressController.class);
 
-    private static final String GET_ALL = "SELECT * FROM address";
-    private static final String GET_BY_ID = "SELECT * FROM address WHERE id = ?";
-    private static final String INSERT = "INSERT INTO address (country, city, street, house) VALUES (?, ?, ?, ?)";
+    private boolean bStructure = false;
 
     @Override
     public List<Address> getAll() {
@@ -38,6 +36,7 @@ public class AddressController extends AbstractController<Address, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Addresses returned");
         return addressList;
     }
 
@@ -58,13 +57,20 @@ public class AddressController extends AbstractController<Address, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Address returned");
         return address;
     }
 
     @Override
     public void create(Address address) {
-        PreparedStatement preparedStatement = getPreparedStatement(INSERT);
+        PreparedStatement preparedStatement = null;
+        if(bStructure == true) {
+            preparedStatement = getPreparedStatement(INSERT_STRUCTURE);
+        } else preparedStatement = getPreparedStatement(INSERT);
         try {
+            if(bStructure == true) {
+                preparedStatement.setLong(5, address.getId());
+            }
             preparedStatement.setString(1, address.getCountryName());
             preparedStatement.setString(2, address.getCityName());
             preparedStatement.setString(3, address.getStreetName());
@@ -75,6 +81,7 @@ public class AddressController extends AbstractController<Address, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Address created");
     }
 
     @Override

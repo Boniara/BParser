@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<company name="roxsoft">
+<company name="roxsoft" id="1">
     <departments>
         <department name="Minsk01" id="1">
-            <department_address>
+            <department_address id="1">
                 <country>Belarus</country>
                 <city>Minsk</city>
                 <street>Mogilevskaia</street>
@@ -17,7 +17,7 @@
                     <position id="1">
                         <positionName>Java Developer</positionName>
                     </position>
-                    <address>
+                    <address id="2">
                         <country>Belarus</country>
                         <city>Minsk</city>
                         <street>Levkova</street>
@@ -31,7 +31,7 @@
                     <position id="2">
                         <positionName>C++ Developer</positionName>
                     </position>
-                    <address>
+                    <address id="3">
                         <country>Belarus</country>
                         <city>Minsk</city>
                         <street>Voronianskogo</street>
@@ -45,7 +45,7 @@
                     <position id="3">
                         <positionName>C# Developer</positionName>
                     </position>
-                    <address>
+                    <address id="4">
                         <country>Belarus</country>
                         <city>Minsk</city>
                         <street>Odoevskaia</street>
@@ -59,7 +59,7 @@
                     <position id="4">
                         <positionName>QA Engineer</positionName>
                     </position>
-                    <address>
+                    <address id="5">
                         <country>Belarus</country>
                         <city>Minsk</city>
                         <street>Jukovskogo</street>
@@ -69,7 +69,7 @@
             </employees>
         </department>
         <department name="KeyWest01" id="2">
-            <department_address>
+            <department_address id="6">
                 <country>USA</country>
                 <city>Key West</city>
                 <street>1st street</street>
@@ -83,7 +83,7 @@
                     <position id="4">
                         <positionName>QA Engineer</positionName>
                     </position>
-                    <address>
+                    <address id="2">
                         <country>Belarus</country>
                         <city>Minsk</city>
                         <street>Levkova</street>
@@ -97,7 +97,7 @@
                     <position id="1">
                         <positionName>Java Developer</positionName>
                     </position>
-                    <address>
+                    <address id="8">
                         <country>USA</country>
                         <city>Key West</city>
                         <street>Patterson avenue</street>
@@ -111,7 +111,7 @@
                     <position id="5">
                         <positionName>Project Manager</positionName>
                     </position>
-                    <address>
+                    <address id="9">
                         <country>USA</country>
                         <city>Key West</city>
                         <street>4th street</street>
@@ -125,7 +125,7 @@
                     <position id="6">
                         <positionName>HR Manager</positionName>
                     </position>
-                    <address>
+                    <address id="10">
                         <country>USA</country>
                         <city>Key West</city>
                         <street>1st avenue</street>
@@ -139,7 +139,7 @@
                     <position id="7">
                         <positionName>Pizza man</positionName>
                     </position>
-                    <address>
+                    <address id="11">
                         <country>USA</country>
                         <city>Miami</city>
                         <street>Bitch</street>

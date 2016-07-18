@@ -12,6 +12,8 @@ public abstract class AbstractController<E, K> {
 
     private static final Logger LOG = Logger.getLogger(AbstractController.class);
 
+    private boolean bStructure = false;
+
     public AbstractController() {
     }
 
@@ -30,6 +32,11 @@ public abstract class AbstractController<E, K> {
             LOG.error("SQLException", e);
         }
         return preparedStatement;
+    }
+
+    public void createStructure(E entity, boolean bStructure) {
+        this.bStructure = bStructure;
+        create(entity);
     }
 
     public void closePreparedStatement(PreparedStatement preparedStatement) {

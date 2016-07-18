@@ -9,15 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import static com.bonia.BParser.utils.jdbc.CompanyControllerConstantSource.*;
 
 public class CompanyController extends AbstractController<Company, Long> {
 
     private static final Logger LOG = Logger.getLogger(CompanyController.class);
 
-    private static final String GET_ALL = "SELECT * FROM company";
-    private static final String GET_BY_ID = "SELECT c.id, c.companyName, d.id FROM company c INNER JOIN department d" +
-            "ON (c.id = d.company_id AND c.id = ?)";
-    private static final String INSERT = "INSERT INTO company (companyName) VALUES (?)";
+    private boolean bStructure = false;
 
     public CompanyController() {
     }
@@ -44,6 +42,7 @@ public class CompanyController extends AbstractController<Company, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Companies returned");
         return companyList;
     }
 
@@ -65,20 +64,28 @@ public class CompanyController extends AbstractController<Company, Long> {
         } finally {
             closePreparedStatement(preparedStatement);
         }
+        LOG.info("Company returned");
         return company;
     }
 
     @Override
     public void create(Company company) {
-        PreparedStatement preparedStatement = getPreparedStatement(INSERT);
+        PreparedStatement preparedStatement = null;
+        if(bStructure == true) {
+            preparedStatement = getPreparedStatement(INSERT_STRUCTURE);
+        } else preparedStatement = getPreparedStatement(INSERT);
         try {
+            if(bStructure == true) {
+                preparedStatement.setLong(2, company.getId());
+            }
             preparedStatement.setString(1, company.getCompanyName());
             preparedStatement.execute();
         } catch (SQLException e) {
             LOG.error("SQLException", e);
         } finally {
-            //closePreparedStatement(preparedStatement);
+            closePreparedStatement(preparedStatement);
         }
+        LOG.info("Company created");
     }
 
     @Override
