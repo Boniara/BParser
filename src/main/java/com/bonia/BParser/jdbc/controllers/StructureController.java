@@ -16,6 +16,11 @@ public class StructureController {
     public StructureController() {
     }
 
+    /**
+     * Method use to create Company structure if we know the Company object
+     * @param company
+     * @see Company
+     */
     public void createStructureByCompany(Company company) {
         LOG.info("Company`s structure prapare to create");
         AddressController addressController = new AddressController();

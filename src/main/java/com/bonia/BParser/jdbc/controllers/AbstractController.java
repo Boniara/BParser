@@ -34,6 +34,12 @@ public abstract class AbstractController<E, K> {
         return preparedStatement;
     }
 
+    /**
+     * Method use to create Entity structure if we know the Entity object
+     * @param entity
+     * @param bStructure
+     * @see com.bonia.BParser.models.AbstractModel
+     */
     public void createStructure(E entity, boolean bStructure) {
         this.bStructure = bStructure;
         create(entity);
