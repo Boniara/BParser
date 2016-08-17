@@ -8,7 +8,6 @@ import com.bonia.BParser.parsers.IParser;
 import com.bonia.BParser.parsers.impl.json.JacksonParser;
 import com.bonia.BParser.parsers.impl.xml.JaxBParser;
 import com.bonia.BParser.parsers.impl.xml.SaxParser;
-import org.apache.log4j.PropertyConfigurator;
 
 public class MainClass {
 
